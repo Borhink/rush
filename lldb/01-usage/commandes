@@ -1,0 +1,14 @@
+breakpoint set -f source.cpp -l 16
+breakpoint command add 2 -o "p $rsi = (unsigned long)(&tab[count - 1])"
+breakpoint set -f source.cpp -l 19 -o
+breakpoint command add 3 -o "expression count = 0"
+breakpoint set -f source.cpp -l 32
+breakpoint command add 4 -o "expression tmp = min[0] + min[1] + min[2]"
+breakpoint set -f source.cpp -l 41 -o
+breakpoint command add 5 -o "thread return (min[0] > min[1] && min[0] > min[2] ? min[0] : (min[1] > min[0] && min[1] > min[2]) ? min[1] : min[2])"
+continue
+continue -i 1
+continue
+continue
+continue
+continue
